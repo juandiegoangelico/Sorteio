@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Sorteio</title>
+
+</head>
+
+<body> <main>
+    <input type="text" placeholder="Digite os nomes" id="concorrente">
+    
+    <button onclick="coletaNome()">
+        adicionar nome
+    </button>
+    <input type="text" placeholder="Digite o valor do Prêmio" id="premio">
+    <button>
+        adicionar valor do premio 
+    </button>
+    <button onclick="sorteador()">
+        sortear
+    </button>
+</main>
+
+
+    <script>
+      let concorrentes = []
+      let concorrente = document.getElementById("concorrente")
+      let premio = document.getElementById("premio")
+      let ganhadores = []
+      function coletaNome(){
+        concorrentes.push(concorrente.value)
+        console.log(concorrentes)
+    
+    }
+
+      function ganhador(min, max) {
+
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+        function sorteador(){
+            let contador = 0
+            do{
+                contador++
+                ganhadores.push(concorrentes[ganhador(0,concorrentes.length-1)])
+                console.log(ganhadores)    
+              
+            } while(contador <3)
+            
+
+        }
+
+    </script>
+    
+</body>
+</html>
